@@ -17,7 +17,15 @@ var commentRoutes = require("./routes/comments"),
     indexRoutes = require("./routes/index")
 
 mongoose.set('useUnifiedTopology', true);
-mongoose.connect("mongodb://localhost:27017/yelp_camp_v12", { useNewUrlParser: true });
+//mongoose.connect("mongodb://localhost:27017/yelp_camp_v12", { useNewUrlParser: true });
+mongoose.connect("mongodb+srv://leeyumi415:forky@cluster0.tteh7.mongodb.net/Cluster0?retryWrites=true&w=majority",{
+    useNewUrlparser: true,
+    useCreateIndex: true
+}).then(()=> {
+    console.log("Connected to Atlas DB!");
+}).catch(err=> {
+    console.log("ERROR: ", err.message);
+});
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
@@ -46,6 +54,17 @@ app.use(function(req, res, next){
     next();
 }); //currentUser: req.user
 
+/////DB CONNECTION TEST
+const PostSchema = new mongoose.Schema({
+    title: String,
+    description: String
+});
+const Post = mongoose.model("Post", PostSchema);
+app.get('/test', async (req,res) => {
+    let post = await Post.create({title:'Test', description: 'This is a db test'});
+    res.send(post);
+});
+/////
 app.use("/", indexRoutes);
 app.use("/campgrounds", campgroundRoutes);
 app.use("/campgrounds/:id/comments" , commentRoutes);

@@ -55,15 +55,15 @@ app.use(function(req, res, next){
 }); //currentUser: req.user
 
 /////DB CONNECTION TEST
-const PostSchema = new mongoose.Schema({
-    title: String,
-    description: String
-});
-const Post = mongoose.model("Post", PostSchema);
-app.get('/test', async (req,res) => {
-    let post = await Post.create({title:'Test', description: 'This is a db test'});
-    res.send(post);
-});
+// const PostSchema = new mongoose.Schema({
+//     title: String,
+//     description: String
+// });
+// const Post = mongoose.model("Post", PostSchema);
+// app.get('/test', async (req,res) => {
+//     let post = await Post.create({title:'Test', description: 'This is a db test'});
+//     res.send(post);
+// });
 /////
 app.use("/", indexRoutes);
 app.use("/campgrounds", campgroundRoutes);

@@ -71,5 +71,5 @@ app.use("/campgrounds/:id/comments" , commentRoutes);
 
 var port = process.env.PORT || 3000;
 app.listen(port, function () {
-  console.log("YelpCamp:v12 Has Started!");
+  console.log("YelpCamp:v12 Has Started..!");
 });

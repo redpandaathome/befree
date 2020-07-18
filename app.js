@@ -16,16 +16,18 @@ var commentRoutes = require("./routes/comments"),
     campgroundRoutes = require("./routes/campgrounds"),
     indexRoutes = require("./routes/index")
 
+//console.log(process.env.DATABASEURL);
+
 mongoose.set('useUnifiedTopology', true);
-//mongoose.connect("mongodb://localhost:27017/yelp_camp_v12", { useNewUrlParser: true });
-mongoose.connect("mongodb+srv://leeyumi415:forky@cluster0.tteh7.mongodb.net/Cluster0?retryWrites=true&w=majority",{
-    useNewUrlparser: true,
-    useCreateIndex: true
-}).then(()=> {
-    console.log("Connected to Atlas DB!");
-}).catch(err=> {
-    console.log("ERROR: ", err.message);
-});
+mongoose.connect(process.env.DATABASEURL, { useNewUrlParser: true });
+// mongoose.connect("mongodb+srv://leeyumi415:forky@cluster0.tteh7.mongodb.net/Cluster0?retryWrites=true&w=majority",{
+//     useNewUrlparser: true,
+//     useCreateIndex: true
+// }).then(()=> {
+//     console.log("Connected to Atlas DB!");
+// }).catch(err=> {
+//     console.log("ERROR: ", err.message);
+// });
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");

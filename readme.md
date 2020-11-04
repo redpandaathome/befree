@@ -1,3 +1,3 @@
-#YelpCamp 
--Basic Login&CRUD project with node.js
--Camping theme
+#YelpCamp  
+- Camping site posting web application with basic Login&CRUD function with node.js  
+- CloneCoding

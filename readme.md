@@ -9,5 +9,4 @@
 - CRUD function with mongodb<br>  
   
 <h4>Deploy</h4>
-[YelpCamp](https://afternoon-hamlet-88240.herokuapp.com)
-[I'm an inline-style link](https://www.google.com)
+https://afternoon-hamlet-88240.herokuapp.com

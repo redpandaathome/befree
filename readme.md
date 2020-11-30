@@ -1,8 +1,9 @@
-#YelpCamp  
-- Camping site posting web application with node.js  
+#About 
+YelpCamp  
+- Camping site sharing web application with node.js  
 - CloneCoding
 
-#function
+#Function
 - Basic Login with passport library (email&password)
 - CRUD function with mongodb
 
